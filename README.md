@@ -21,6 +21,7 @@ https://uniapp.dcloud.net.cn/uniCloud/
 传统型的前后端项目开发，项目必须依赖于托管到服务器，配置稍微可以的起码也要几百块钱，而 uniCloud 是由阿里云和腾讯云免费提供的硬件和网络，但是腾讯云从 2022 年 08 月 18 起开始割韭菜了，啊不对，是开始收费了，每月最低 19.9 元，目前免费的是阿里云，希望阿里云能承担更多的社会责任感，给小微企业及学习的学生带来一些温暖，哪怕未来收费，可以按量付费，可别学鹅厂的基础套餐。这点钱对于企业来讲不算什么，但是对于创业者或者学生的毕设及作业来讲，不花钱的肯定香呀。其实即时是收费，相比租用传统云要便宜的多。
 
 ---
+**[所有资源地址：](https://gitee.com/qingnian8/uniall/tree/master/uniCloudBase)https://gitee.com/qingnian8/uniall/tree/master/uniCloudBase**
 
 # uniCloud 云开发视频教程-从基础入门到项目开发实战
 
