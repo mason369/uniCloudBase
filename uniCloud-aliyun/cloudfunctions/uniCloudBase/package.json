@@ -1,0 +1,7 @@
+{
+  "name": "uniCloudBase",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
