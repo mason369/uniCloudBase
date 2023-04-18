@@ -2,18 +2,35 @@
     <view class="add">
         <form @submit="onSubmit">
             <view class="item">
-                <input type="text" name="title" placeholder="请输入标题" />
+                <input
+                    v-model="detail.title"
+                    type="text"
+                    name="title"
+                    placeholder="请输入标题"
+                />
             </view>
             <view class="item">
-                <input type="text" name="author" placeholder="请输入作者" />
+                <input
+                    type="text"
+                    name="author"
+                    placeholder="请输入作者"
+                    v-model="detail.author"
+                />
             </view>
             <view class="item">
-                <textarea type="text" name="content" placeholder="请输入内容" />
+                <textarea
+                    type="text"
+                    name="content"
+                    placeholder="请输入内容"
+                    v-model="detail.content"
+                />
             </view>
             <!-- 提交 -->
             <view class="submit">
                 <button form-type="reset">重置</button>
-                <button form-type="submit" type="primary">提交</button>
+                <button form-type="submit" type="primary" :disabled="submitBtn">
+                    提交
+                </button>
             </view>
         </form>
     </view>
@@ -22,7 +39,14 @@
 <script>
 export default {
     data() {
-        return {};
+        return {
+            // 表单数据
+            detail: {
+                title: "",
+                author: "",
+                content: "",
+            },
+        };
     },
     methods: {
         onSubmit(e) {
@@ -42,7 +66,27 @@ export default {
                         title: "添加成功",
                         icon: "success",
                     });
+                    // 返回上一页
+                    setTimeout(() => {
+                        uni.reLaunch({
+                            url: "/pages/index/index",
+                        });
+                    }, 1000);
                 });
+        },
+    },
+    computed: {
+        submitBtn() {
+            // 判断是否有值
+            if (
+                this.detail.title &&
+                this.detail.author &&
+                this.detail.content
+            ) {
+                return false;
+            } else {
+                return true;
+            }
         },
     },
 };
