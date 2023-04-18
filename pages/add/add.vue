@@ -1,6 +1,6 @@
 <template>
     <view class="add">
-        <form>
+        <form @submit="onSubmit">
             <view class="item">
                 <input type="text" name="title" placeholder="请输入标题" />
             </view>
@@ -12,7 +12,8 @@
             </view>
             <!-- 提交 -->
             <view class="submit">
-                <button type="submit">提交</button>
+                <button form-type="reset">重置</button>
+                <button form-type="submit" type="primary">提交</button>
             </view>
         </form>
     </view>
@@ -22,6 +23,27 @@
 export default {
     data() {
         return {};
+    },
+    methods: {
+        onSubmit(e) {
+            // 获取表单数据
+            let detail = e.detail.value;
+            // 调用云函数
+            uniCloud
+                .callFunction({
+                    name: "art_add_row",
+                    data: {
+                        detail,
+                    },
+                })
+                .then((res) => {
+                    // 提示
+                    uni.showToast({
+                        title: "添加成功",
+                        icon: "success",
+                    });
+                });
+        },
     },
 };
 </script>
@@ -51,8 +73,7 @@ export default {
             height: 80rpx;
             line-height: 80rpx;
             border-radius: 10rpx;
-            background: #eee;
-            color: #333;
+            margin-bottom: 20rpx;
             // 交互
             transition: all 0.3s;
             &:active {
